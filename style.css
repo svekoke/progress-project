@@ -1,0 +1,152 @@
+.body {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  display: flex;
+  padding: 20px;
+  gap: 94px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.progress-loading {
+  display: grid;
+  gap: 60px;
+}
+
+.progress-loading .loading-circle {
+  justify-self: center;
+}
+
+.text {
+  margin: 5px;
+  justify-self: start;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.controls label {
+  display: flex;
+  align-items: center;
+}
+
+.settings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.setting,
+.switch {
+  gap: 19px;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.switch-pseudo {
+  width: 48px;
+  height: 28px;
+  background: #d3d3d3;
+  border-radius: 50px;
+  position: relative;
+  transition: background 0.25s;
+}
+
+.switch-pseudo::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  left: 3px;
+  top: 3px;
+  background: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.25s;
+}
+
+.visually-hidden:checked + .switch-pseudo {
+  background: #1560bd;
+}
+
+.visually-hidden:checked + .switch-pseudo::before {
+  transform: translateX(20px);
+}
+
+.main-circle {
+  animation: loading 2s linear infinite;
+  transform-origin: 50% 50%;
+  animation-play-state: paused;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.value-input {
+  border-radius: 50px;
+  width: 40.8px;
+  height: 22.8px;
+  text-align: center;
+  border: 1px solid #000000;
+}
+
+.switch-label {
+  margin-right: 20px;
+  font-size: 18px;
+}
+
+@media (orientation: portrait) {
+  .content {
+    flex-direction: column;
+    max-width: 568px;
+  }
+
+  .settings {
+    width: 100%;
+  }
+}
+
+@media (orientation: landscape) {
+  .content {
+    flex-direction: row;
+    gap: 40px;
+    min-height: 320px;
+    min-width: 568px;
+  }
+
+  .progress-loading {
+    gap: 54px;
+  }
+
+  .loading-circle {
+    margin-left: 45px;
+  }
+
+  .block {
+    min-width: 250px;
+    max-width: 50%;
+  }
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
